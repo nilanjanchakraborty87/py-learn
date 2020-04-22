@@ -40,6 +40,7 @@ adict = dict(
 )
 
 """
+import collections
 
 def test_is_dict():
     # declare a dictionary
@@ -90,7 +91,77 @@ def test_dict_operations():
     # add a new element into dictionary
     adict[6] = 'Six'
     assert len(adict) == 6
+
+    # membership test for dictionary keys
+    # membership operations not supported for values
+    assert 6 in adict
+
+    # get a default value if key does not exist
+    default_val = adict.get(100, 'HUNDRED')
+    assert default_val == 'HUNDRED'
+
+    # create a list from dictionary using bulit-in list method
+    # creates a list from dict keys
+    l = list(adict)
+    print("Converted list: ", l)
+
+    # fromkeys method
+    # Return a new dictionary with keys from a sequence and value equal to defaultValue or None
+    fdict = dict().fromkeys(range(1, 11), 'DEFAULT_VALUE')
+    assert len(fdict) == 10
+    print("fromkeys generated dictionary: ", fdict)
+
+    # traverse a dictionary
+    # creating a dictionary using compreshension
+    sdict = {i: i**3 for i in range(1, 11)}
+    for i in sdict:
+        print("Key: {}, Value: {}".format(i, sdict[i]))
+
+    # Traverse dict items in pairs
+    for k, v in sdict.items():
+        print("Key: {}, Value: {}".format(k, v))
     
     
+    # dictionary comprehension
+    udict = {k: v.upper() for k, v in adict.items()}
+    print("Uppercase representation of dict values: ", udict)
+    
+    # remove a partiular key from dictionary and returns the asscoiated value
+    number = udict.pop(5)
+    assert number == 'FIVE'
+
+    # remove an arbitary element pair
+    pair = udict.popitem()
+    assert len(udict) == 4
+    print("Removed pair: ", pair)
+
+    # deletes a particular item
+    del udict[3]
+    assert len(udict) == 3
+
+    # remove all elements
+    udict.clear()
+    assert len(udict) == 0
+
+    # delete reference itself
+    del udict
+
+    # return the all dictionary keys
+    #assert isinstance(adict.keys(), collections.KeysView)
+
+    # convert into list
+    keys = list(adict.keys())
+    print("Keys: ", keys)
+
+    # return the all dictionary Values
+    #assert isinstance(adict.values(), collections.ValuesView)
+
+    # return the all dictionary values as list
+    values = list(adict.values())
+    print("Values: ", values)
+
+
+    
+
 
 test_dict_operations()
