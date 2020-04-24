@@ -26,6 +26,7 @@ def test_empty_tuple():
     a_tuple = ()
     # empty check
     assert len(a_tuple) == 0
+    assert isinstance(a_tuple, tuple)
 
 test_empty_tuple()
 
@@ -36,7 +37,7 @@ def test_singleton_tuple():
     a_tuple = (1,)
     assert len(a_tuple) == 1
 
-test_singleton_tuple()
+#test_singleton_tuple()
 
 def test_tuple_operations():
     # tuple contains multiple datatypes

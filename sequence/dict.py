@@ -26,11 +26,11 @@ The argument to dict() should be a sequence of key-value pairs.
 
 We can create a dictionary from list of tuples as follows
 
-adict = dict({
+adict = dict([
     (k1, v1),
     (k2, v2),
     (k3, v3)
-}) 
+]) 
 
 if keys are simple strings you can also create a dictionary in following way
 
@@ -130,7 +130,9 @@ def test_dict_operations():
     number = udict.pop(5)
     assert number == 'FIVE'
 
-    # remove an arbitary element pair
+    # in earlier versions it used to remove an arbitary element pair
+    # but since version 3.7 it removes and returns a pair from the dictionary. Pairs are returned in LIFO order
+    # LIFO order is now guaranteed
     pair = udict.popitem()
     assert len(udict) == 4
     print("Removed pair: ", pair)

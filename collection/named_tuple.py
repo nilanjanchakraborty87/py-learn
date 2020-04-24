@@ -96,4 +96,14 @@ def test_namedtuple_creation():
 
 test_namedtuple_creation()
 
+def test_namedtuple_operations():
 
+    Person = namedtuple('Person', 'name age gender')
+
+    # now lets create few peron objects
+    john = Person(name = "John Doe", age = 35, gender = "MALE")
+
+    # now print a namedtuple
+    print('%s is %d year old %s' % (john))
+
+test_namedtuple_operations()

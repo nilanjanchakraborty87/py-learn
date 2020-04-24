@@ -26,13 +26,6 @@ def test_set():
     """
     #declares a set
     cars = {"Honda", "Maruti", "Chevrolet"}
-
-    """
-    assert belongs to pytest pypi package. To use assert you need to install pytest in following way
-              pip install pytest
-    
-    assert verifies expectations and values
-    """
     assert isinstance(cars, set)
 
     # also we can construct set in below way
@@ -43,11 +36,13 @@ def test_set():
     numbers *= 3
 
     # now convert the above list to set which will drop all the duplicate numbers from list and creates the list
-    # using set constructor
+    # using set function
     unumbers = set(numbers)
 
     # let's test the data type
     assert isinstance(unumbers, set)
+
+    assert len(unumbers) == 10
 
     # we can also print the datatype
     print("unumbers is a {0} datatype".format(type(unumbers)))
@@ -98,8 +93,7 @@ def test_set_operations():
     assert len(cars) == 6
 
     # we can also use pop method to remove an element
-    # a random element will be removed as set is unordered and a random element is chose
-    # it returns the popped element
+    # a arbitary is removed and returned
     popped_brand = cars.pop()
     # cars length will become 5
     assert len(cars) == 5
